@@ -9,14 +9,12 @@ class Finnish_Translator(object):
         self.cursor = Translator(service_urls=["translate.google.com"])
 
     def __repr__(self):
-        translated = self.cursor.translate(self.word,
-                                           dest=self.language).text
+        translated = self.cursor.translate(self.word, dest=self.language).text
 
-        data = [["Language:", "Word or Language:"],
-                ["English:", self.word],
-                ["Finnish:", str(translated)]]
+        data = [["Original:", self.word],
+                ["Translated:", str(translated)]]
 
-        table = str(tabulate(data, headers="firstrow"))
+        table = str(tabulate(data))
         return table
 
 
